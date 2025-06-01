@@ -132,7 +132,7 @@ const ContactCTA = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-cyan-300 to-teal-300 bg-clip-text text-transparent mb-8"
             >
-              Let's Connect
+              Let&apos;s Connect
             </motion.h2>
             
             <motion.p
@@ -141,7 +141,7 @@ const ContactCTA = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="text-2xl text-cyan-100 max-w-4xl mx-auto leading-relaxed mb-12"
             >
-              I'm looking for a team that believes games can change lives. 
+              I&apos;m looking for a team that believes games can change lives. 
               Together, we can create experiences that provide flow, challenge, and joy.
             </motion.p>
 
@@ -292,10 +292,10 @@ const ContactCTA = () => {
             className="text-center"
           >
             <blockquote className="text-xl md:text-2xl text-cyan-100 italic max-w-4xl mx-auto relative leading-relaxed">
-              <span className="text-cyan-400 text-4xl absolute -top-4 -left-4 opacity-50">"</span>
-              Ready to join a team that's building something extraordinary. 
-              Let's create games that provide the flow and wonder this world needs.
-              <span className="text-cyan-400 text-4xl absolute -bottom-6 -right-4 opacity-50">"</span>
+              <span className="text-cyan-400 text-4xl absolute -top-4 -left-4 opacity-50">&quot;</span>
+              Ready to join a team that&apos;s building something extraordinary. 
+              Let&apos;s create games that provide the flow and wonder this world needs.
+              <span className="text-cyan-400 text-4xl absolute -bottom-6 -right-4 opacity-50">&quot;</span>
             </blockquote>
             <cite className="text-cyan-300 mt-6 block text-lg font-medium">- Hunter Coleman</cite>
           </motion.div>

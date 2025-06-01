@@ -2,7 +2,7 @@
 
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
-import { Lightbulb, MousePointer, Puzzle, Zap, Play, Eye, Clock, Target } from 'lucide-react';
+import { Lightbulb, MousePointer, Puzzle, Zap, Play, Eye, Target } from 'lucide-react';
 
 const InnovationShowcase = () => {
   const containerRef = useRef(null);
@@ -196,7 +196,7 @@ const InnovationShowcase = () => {
                   just one button and the creativity to make it engaging.
                 </p>
                 <blockquote className="text-lg text-purple-200 italic border-l-4 border-purple-400 pl-4">
-                  "Timing becomes a decision, not just a skill."
+                  &quot;Timing becomes a decision, not just a skill.&quot;
                 </blockquote>
               </div>
 
@@ -268,11 +268,11 @@ const InnovationShowcase = () => {
             className="mt-16 text-center"
           >
             <blockquote className="text-xl md:text-2xl text-purple-100 italic max-w-4xl mx-auto relative">
-              <span className="text-purple-400 text-4xl absolute -top-4 -left-4 opacity-50">"</span>
+              <span className="text-purple-400 text-4xl absolute -top-4 -left-4 opacity-50">&quot;</span>
               A good puzzle reveals the answer was hiding in plain sight. Limitation breeds creativity - and challenge.
-              <span className="text-purple-400 text-4xl absolute -bottom-6 -right-4 opacity-50">"</span>
+              <span className="text-purple-400 text-4xl absolute -bottom-6 -right-4 opacity-50">&quot;</span>
             </blockquote>
-            <cite className="text-purple-300 mt-4 block">- The "Aha!" Philosophy, Shadow Mind</cite>
+            <cite className="text-purple-300 mt-4 block">- The &quot;Aha!&quot; Philosophy, Shadow Mind</cite>
           </motion.div>
         </div>
       </div>

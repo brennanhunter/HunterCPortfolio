@@ -1,4 +1,3 @@
-import Image from "next/image";
 import HeroSection from "./components/Hero";
 import FeaturedProject from "./components/Featured";
 import BounceTargetGame from "./components/BounceTargetGame";

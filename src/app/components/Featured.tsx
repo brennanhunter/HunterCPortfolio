@@ -1,7 +1,7 @@
 'use client';
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
-import { Play, Users, Brain, Zap, Target, Code, Lightbulb } from 'lucide-react';
+import { Play, Brain, Zap, Target, Code, Lightbulb } from 'lucide-react';
 
 const FeaturedProject = () => {
   const containerRef = useRef(null);
@@ -235,9 +235,9 @@ const FeaturedProject = () => {
             className="mt-16 text-center"
           >
             <blockquote className="text-xl md:text-2xl text-cyan-100 italic max-w-4xl mx-auto relative">
-              <span className="text-cyan-400 text-4xl absolute -top-4 -left-4 opacity-50">"</span>
+              <span className="text-cyan-400 text-4xl absolute -top-4 -left-4 opacity-50">&quot;</span>
               Every level is a lesson. First, we teach; then we test. The game is most rewarding when players feel clever, not guided.
-              <span className="text-cyan-400 text-4xl absolute -bottom-6 -right-4 opacity-50">"</span>
+              <span className="text-cyan-400 text-4xl absolute -bottom-6 -right-4 opacity-50">&quot;</span>
             </blockquote>
             <cite className="text-cyan-300 mt-4 block">— Design Philosophy, Dawn and Dusk</cite>
           </motion.div>

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useAnimation } from 'framer-motion';
-import { ChevronDown, Mail, Linkedin, Github, Gamepad2, Users, Brain } from 'lucide-react';
+import { ChevronDown, Mail, Linkedin, Gamepad2, Users, Brain } from 'lucide-react';
 
 const HeroSection = () => {
   const containerRef = useRef(null);
@@ -159,10 +159,10 @@ const HeroSection = () => {
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <span className="text-cyan-300 text-6xl absolute -top-4 -left-4 opacity-50">"</span>
-              Life can be hard. Video games got me through difficult times — there's something magical about 
-              <span className="text-cyan-300 font-medium"> flow</span>, and a great game provides what life sometimes can't.
-              <span className="text-cyan-300 text-6xl absolute -bottom-8 -right-4 opacity-50">"</span>
+              <span className="text-cyan-300 text-6xl absolute -top-4 -left-4 opacity-50">&quot;</span>
+              Life can be hard. Video games got me through difficult times — there&apos;s something magical about 
+              <span className="text-cyan-300 font-medium"> flow</span>, and a great game provides what life sometimes can&apos;t.
+              <span className="text-cyan-300 text-6xl absolute -bottom-8 -right-4 opacity-50">&quot;</span>
             </motion.blockquote>
           </motion.div>
 
@@ -213,7 +213,7 @@ const HeroSection = () => {
               whileHover={{ scale: 1.02 }}
             >
               Looking to join a talented team building something extraordinary. 
-              Let's create games that provide the flow and joy that make life better.
+              Let&apos;s create games that provide the flow and joy that make life better.
             </motion.p>
             
             <motion.div
@@ -229,7 +229,7 @@ const HeroSection = () => {
                 className="flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:from-cyan-400 hover:to-teal-400"
               >
                 <Mail className="w-5 h-5" />
-                Let's Connect
+                Let&apos;s Connect
               </motion.a>
               
               <motion.a

@@ -2,7 +2,7 @@
 
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
-import { Heart, Zap, Users, Target, Gamepad2, Sparkles, Award, Globe } from 'lucide-react';
+import { Heart, Zap, Users, Target, Gamepad2, Sparkles } from 'lucide-react';
 
 const PersonalMission = () => {
   const containerRef = useRef(null);
@@ -152,11 +152,11 @@ const PersonalMission = () => {
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <span className="text-pink-400 text-6xl absolute -top-6 -left-4 opacity-50">"</span>
+                <span className="text-pink-400 text-6xl absolute -top-6 -left-4 opacity-50">&quot;</span>
                 I have cerebral palsy, and as sad as it may be, video games got me through a lot of hard times. 
                 There is something great about <span className="text-pink-300 font-medium">flow</span> - and life has a hard time providing flow. 
                 A great game is a masterpiece and leaves you with a longing when completed.
-                <span className="text-pink-400 text-6xl absolute -bottom-12 -right-4 opacity-50">"</span>
+                <span className="text-pink-400 text-6xl absolute -bottom-12 -right-4 opacity-50">&quot;</span>
               </motion.blockquote>
             </div>
           </motion.div>
@@ -239,14 +239,14 @@ const PersonalMission = () => {
               >
                 <Gamepad2 className="w-16 h-16 text-pink-400 mx-auto" />
                 <h3 className="text-3xl font-bold text-white">
-                  Let's Build Something Extraordinary
+                  Let&apos;s Build Something Extraordinary
                 </h3>
                 <p className="text-xl text-pink-100 max-w-3xl mx-auto leading-relaxed">
                   I want to join a team that believes games can make life better. 
                   Together, we can create experiences that provide flow, challenge, and joy to players who need it most.
                 </p>
                 <blockquote className="text-lg text-pink-200 italic">
-                  "Entertainment is what fuels me. Life can be hard - let's make games that help."
+                  &quot;Entertainment is what fuels me. Life can be hard - let&apos;s make games that help.&quot;
                 </blockquote>
               </motion.div>
             </div>

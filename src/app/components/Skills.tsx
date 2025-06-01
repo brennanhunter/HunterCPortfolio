@@ -2,7 +2,7 @@
 
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
-import { Code, Users, MessageSquare, Lightbulb, Zap, Brain, Gamepad2, Globe, GitBranch, Palette, Cpu, Heart } from 'lucide-react';
+import { Code, Users, MessageSquare, Gamepad2, Heart } from 'lucide-react';
 
 const SkillsLeadership = () => {
   const containerRef = useRef(null);
@@ -222,8 +222,8 @@ const SkillsLeadership = () => {
                   Leadership Philosophy
                 </h3>
                 <blockquote className="text-lg text-emerald-100 italic leading-relaxed">
-                  "I don't mind addressing conflict. I stay focused on the big picture and believe 
-                  the best results come from everyone having a voice and feeling heard."
+                  &quot;I don&apos;t mind addressing conflict. I stay focused on the big picture and believe 
+                  the best results come from everyone having a voice and feeling heard.&quot;
                 </blockquote>
               </div>
 
@@ -299,10 +299,10 @@ const SkillsLeadership = () => {
           >
             <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl p-8 border border-emerald-400/20">
               <blockquote className="text-xl md:text-2xl text-emerald-100 italic max-w-4xl mx-auto relative leading-relaxed">
-                <span className="text-emerald-400 text-4xl absolute -top-4 -left-4 opacity-50">"</span>
+                <span className="text-emerald-400 text-4xl absolute -top-4 -left-4 opacity-50">&quot;</span>
                 Great teams are built on trust, clear communication, and making sure everyone feels heard. 
                 Technical skills get you hired - leadership skills make you invaluable.
-                <span className="text-emerald-400 text-4xl absolute -bottom-6 -right-4 opacity-50">"</span>
+                <span className="text-emerald-400 text-4xl absolute -bottom-6 -right-4 opacity-50">&quot;</span>
               </blockquote>
             </div>
           </motion.div>

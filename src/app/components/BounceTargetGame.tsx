@@ -637,7 +637,7 @@ const BounceTargetGame: React.FC = () => {
               The Story Behind Bounce Target
             </h2>
             <p className="text-cyan-100 leading-relaxed">
-              Bounce Target was inspired by a fun game I played with my boys around our kitchen table. We'd take turns bouncing a ball across the table, challenging each other to hit a specific number of bounces before it went off the edge. The first player aimed for one bounce, the next for two, and so on. It was all about precision, timing, and a bit of friendly competition. I created this digital version to capture that same joy and share it with others, turning our family game into a playful puzzle for everyone to enjoy!
+              Bounce Target was inspired by a fun game I played with my boys around our kitchen table. We&apos;d take turns bouncing a ball across the table, challenging each other to hit a specific number of bounces before it went off the edge. The first player aimed for one bounce, the next for two, and so on. It was all about precision, timing, and a bit of friendly competition. I created this digital version to capture that same joy and share it with others, turning our family game into a playful puzzle for everyone to enjoy!
             </p>
           </motion.div>
         </div>
