@@ -151,12 +151,12 @@ const isInView = useInView(containerRef, {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.8 }}
-                  className="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-sm rounded-lg p-4"
+                  className="absolute bottom-2 left-2 right-2 md:bottom-4 md:left-4 md:right-4 bg-black/60 backdrop-blur-sm rounded-lg p-2 md:p-4"
                 >
-                  <div className="flex items-center gap-3">
-                    <Play className="w-5 h-5 text-cyan-400" />
-                    <span className="text-white font-medium">Capstone Project Trailer</span>
-                    <span className="text-cyan-300 text-sm">UE5 • Blueprints • Team of 7</span>
+                  <div className="flex items-center gap-2 md:gap-3">
+                    <Play className="w-4 h-4 md:w-5 md:h-5 text-cyan-400" />
+                    <span className="text-white font-medium text-sm md:text-base">Capstone Project Trailer</span>
+                    <span className="text-cyan-300 text-xs md:text-sm hidden sm:inline">UE5 • Blueprints • Team of 7</span>
                   </div>
                 </motion.div>
               </div>

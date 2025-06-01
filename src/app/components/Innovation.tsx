@@ -17,8 +17,8 @@ const InnovationShowcase = () => {
   
 const isInView = useInView(containerRef, { 
   once: true, 
-  amount: 0.1,  // Reduced from 0.3 to 0.1
-  margin: "0px 0px -100px 0px"  // Trigger earlier
+  amount: 0.01,  // Much lower threshold for mobile
+  margin: "-100px 0px -100px 0px"  // Trigger earlier with better syntax
 });  
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
@@ -169,12 +169,12 @@ const isInView = useInView(containerRef, {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.8 }}
-                  className="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-sm rounded-lg p-4"
+                  className="absolute bottom-2 left-2 right-2 md:bottom-4 md:left-4 md:right-4 bg-black/60 backdrop-blur-sm rounded-lg p-2 md:p-4"
                 >
-                  <div className="flex items-center gap-3">
-                    <Play className="w-5 h-5 text-purple-400" />
-                    <span className="text-white font-medium">Early Development</span>
-                    <span className="text-purple-300 text-sm">One Button • UE5 • Constraint Design</span>
+                  <div className="flex items-center gap-2 md:gap-3">
+                    <Play className="w-4 h-4 md:w-5 md:h-5 text-purple-400" />
+                    <span className="text-white font-medium text-sm md:text-base">Early Development</span>
+                    <span className="text-purple-300 text-xs md:text-sm hidden sm:inline">One Button • UE5 • Constraint Design</span>
                   </div>
                 </motion.div>
               </div>
