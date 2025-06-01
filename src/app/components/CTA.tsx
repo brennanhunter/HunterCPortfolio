@@ -15,8 +15,11 @@ const ContactCTA = () => {
   const y2 = useTransform(scrollYProgress, [0, 1], [50, -50]);
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 1.1]);
   
-  const isInView = useInView(containerRef, { once: true, amount: 0.3 });
-  const [emailCopied, setEmailCopied] = useState(false);
+const isInView = useInView(containerRef, { 
+  once: true, 
+  amount: 0.1,  // Reduced from 0.3 to 0.1
+  margin: "0px 0px -100px 0px"  // Trigger earlier
+});  const [emailCopied, setEmailCopied] = useState(false);
 
   const valueProps = [
     {

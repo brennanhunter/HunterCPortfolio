@@ -1,5 +1,5 @@
 'use client';
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { Play, Brain, Zap, Target, Code, Lightbulb } from 'lucide-react';
 
@@ -14,8 +14,21 @@ const FeaturedProject = () => {
   const y2 = useTransform(scrollYProgress, [0, 1], [50, -50]);
   const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]);
   
-  const isInView = useInView(containerRef, { once: true, amount: 0.3 });
+const isInView = useInView(containerRef, { 
+  once: true, 
+  amount: 0.1,  // Reduced from 0.3 to 0.1
+  margin: "0px 0px -100px 0px"  // Trigger earlier
+});  
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+
+  // Better loading detection - Fix 2
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVideoLoaded(true);
+    }, 2000); // Show video after 2 seconds regardless
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const philosophyPoints = [
     {
@@ -124,13 +137,12 @@ const FeaturedProject = () => {
                     </div>
                   )}
                   <iframe
-                    src="https://www.youtube.com/embed/r3SEvl1vqFs"
+                    src="https://www.youtube.com/embed/r3SEvl1vqFs?enablejsapi=1&origin=https://huntercportfolio.com&autoplay=0&rel=0&modestbranding=1"
                     title="Dawn and Dusk Trailer"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                     className="w-full h-full"
-                    onLoad={() => setIsVideoLoaded(true)}
                   />
                 </motion.div>
                 
