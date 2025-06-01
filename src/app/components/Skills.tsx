@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { Code, Users, MessageSquare, Gamepad2, Heart } from 'lucide-react';
 
@@ -15,11 +15,26 @@ const SkillsLeadership = () => {
   const y2 = useTransform(scrollYProgress, [0, 1], [50, -50]);
   const rotate = useTransform(scrollYProgress, [0, 1], [0, 180]);
   
-const isInView = useInView(containerRef, { 
-  once: true, 
-  amount: 0.1,  // Reduced from 0.3 to 0.1
-  margin: "0px 0px -100px 0px"  // Trigger earlier
-});  type SkillCategoryKey = 'game-dev' | 'technical' | 'leadership';
+  // Better mobile detection and intersection observer
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const isInView = useInView(containerRef, { 
+    once: true, 
+    amount: isMobile ? 0.01 : 0.1,  // Much lower threshold for mobile
+    margin: "-50px 0px -50px 0px"  // Trigger earlier
+  });
+  
+  type SkillCategoryKey = 'game-dev' | 'technical' | 'leadership';
 
   const [activeSkillCategory, setActiveSkillCategory] = useState<SkillCategoryKey>('game-dev');
 
