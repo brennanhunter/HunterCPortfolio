@@ -1,5 +1,6 @@
 import HeroSection from "./components/Hero";
 import FeaturedProject from "./components/Featured";
+import ShippedProducts from "./components/ShippedProducts";
 import BounceTargetGame from "./components/BounceTargetGame";
 import InnovationShowcase from "./components/Innovation";
 import PersonalMission from "./components/Mission";
@@ -11,10 +12,11 @@ export default function Home() {
     <>
       <HeroSection />
       <FeaturedProject />
-      <BounceTargetGame />
+      <ShippedProducts />
       <InnovationShowcase />
-      <PersonalMission />
+      <BounceTargetGame />
       <SkillsLeadership />
+      <PersonalMission />
       <ContactCTA />
     </>
   );

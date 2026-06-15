@@ -2,7 +2,7 @@
 
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
-import { Mail, Linkedin, Send, Gamepad2, Users, Brain, Zap, Heart, Star, ArrowRight, Copy, CheckCircle } from 'lucide-react';
+import { Mail, Linkedin, Send, Gamepad2, Rocket, Brain, Zap, Star, ArrowRight, Copy, CheckCircle } from 'lucide-react';
 
 const ContactCTA = () => {
   const containerRef = useRef(null);
@@ -23,32 +23,32 @@ const isInView = useInView(containerRef, {
 
   const valueProps = [
     {
-      icon: <Brain className="w-5 h-5" />,
-      title: "Design Philosophy",
-      description: "Every mechanic serves dual purposes - strategic depth through thoughtful constraint"
+      icon: <Gamepad2 className="w-5 h-5" />,
+      title: "Multi-Engine Prototyping",
+      description: "UE5 + Blueprints, O3DE, Godot, Defold — fast iteration across engines"
+    },
+    {
+      icon: <Rocket className="w-5 h-5" />,
+      title: "Ships End to End",
+      description: "From UE5 gameplay systems to a live streaming platform and apps on both stores"
     },
     {
       icon: <Zap className="w-5 h-5" />,
-      title: "Technical Innovation", 
-      description: "AI coordination, behavior trees, and creative solutions under pressure"
+      title: "Systems & Tools",
+      description: "Designs the systems and tools that unlock the whole team's iteration speed"
     },
     {
-      icon: <Users className="w-5 h-5" />,
-      title: "Proven Leadership",
-      description: "Successfully led 7-person team through conflict to successful delivery"
-    },
-    {
-      icon: <Heart className="w-5 h-5" />,
-      title: "Personal Mission",
-      description: "Games as flow experiences that provide what life sometimes cannot"
+      icon: <Brain className="w-5 h-5" />,
+      title: "Autonomous Ownership",
+      description: "Takes ambiguous problems from concept to production, solo"
     }
   ];
 
   const projectHighlights = [
-    { name: "Dawn and Dusk", role: "AI Systems & Team Lead", team: "7 people" },
-    { name: "Shadow Mind", role: "One-Button Innovation", constraint: "Creative constraint" },
-    { name: "Bounce Target", role: "Family to Digital", story: "Personal story" },
-    { name: "Game Jam", role: "24-Hour Leadership", pressure: "High pressure" }
+    { name: "Dawn and Dusk", role: "UE5 Capstone · Systems & AI", team: "Team of 7" },
+    { name: "BoxStreamTV", role: "Live PPV Platform", constraint: "Next.js · AWS IVS · Stripe" },
+    { name: "JusTrack", role: "Cross-Platform App", story: "iOS + Android" },
+    { name: "Cross-Engine", role: "O3DE · Godot · Defold", pressure: "Prototypes" }
   ];
 
   const handleEmailCopy = async () => {

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useAnimation } from 'framer-motion';
-import { ChevronDown, Mail, Linkedin, Gamepad2, Users, Brain } from 'lucide-react';
+import { ChevronDown, Mail, Linkedin, Gamepad2, Rocket, Code } from 'lucide-react';
 
 const HeroSection = () => {
   const containerRef = useRef(null);
@@ -143,7 +143,7 @@ const HeroSection = () => {
               transition={{ delay: 1 }}
               className="text-xl md:text-2xl text-cyan-100 font-light"
             >
-              Game Developer & Experience Designer
+              Technical Game Designer · Multi-Engine Generalist · Full-Stack Developer
             </motion.p>
           </motion.div>
 
@@ -154,16 +154,15 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 1.2 }}
             className="mb-12 max-w-4xl mx-auto"
           >
-            <motion.blockquote
-              className="text-2xl md:text-3xl text-white leading-relaxed font-light italic relative"
+            <motion.p
+              className="text-2xl md:text-3xl text-white leading-relaxed font-light"
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <span className="text-cyan-300 text-6xl absolute -top-4 -left-4 opacity-50">&quot;</span>
-              Life can be hard. Video games got me through difficult times — there&apos;s something magical about 
-              <span className="text-cyan-300 font-medium"> flow</span>, and a great game provides what life sometimes can&apos;t.
-              <span className="text-cyan-300 text-6xl absolute -bottom-8 -right-4 opacity-50">&quot;</span>
-            </motion.blockquote>
+              I prototype fast across engines and ship products end to end — from
+              <span className="text-cyan-300 font-medium"> UE5 gameplay systems</span> to a
+              <span className="text-cyan-300 font-medium"> live streaming platform</span> serving real audiences.
+            </motion.p>
           </motion.div>
 
           {/* Key Stats */}
@@ -178,26 +177,26 @@ const HeroSection = () => {
               className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-cyan-400/30"
             >
               <Gamepad2 className="w-12 h-12 text-cyan-400 mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-white mb-2">3 Years UE5</h3>
-              <p className="text-cyan-100">AI Systems, Behavior Trees, Level Design</p>
+              <h3 className="text-xl font-bold text-white mb-2">Multi-Engine</h3>
+              <p className="text-cyan-100">UE5 &amp; Blueprints · O3DE · Godot · Defold</p>
             </motion.div>
-            
+
             <motion.div
               whileHover={{ scale: 1.1, rotateY: 5 }}
               className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-teal-400/30"
             >
-              <Brain className="w-12 h-12 text-teal-400 mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-white mb-2">Full Sail Graduate</h3>
-              <p className="text-teal-100">Game Design Degree, Strong Foundation</p>
+              <Rocket className="w-12 h-12 text-teal-400 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-white mb-2">Shipped to Production</h3>
+              <p className="text-teal-100">JusTrack on iOS &amp; Android · BoxStreamTV live</p>
             </motion.div>
-            
+
             <motion.div
               whileHover={{ scale: 1.1, rotateY: 5 }}
               className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-cyan-400/30"
             >
-              <Users className="w-12 h-12 text-cyan-400 mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-white mb-2">Team Leader</h3>
-              <p className="text-cyan-100">Led 7-person capstone team to success</p>
+              <Code className="w-12 h-12 text-cyan-400 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-white mb-2">Full-Stack</h3>
+              <p className="text-cyan-100">TypeScript · Next.js · AWS IVS · Stripe · Supabase</p>
             </motion.div>
           </motion.div>
 
@@ -212,8 +211,9 @@ const HeroSection = () => {
               className="text-xl text-cyan-100 max-w-3xl mx-auto"
               whileHover={{ scale: 1.02 }}
             >
-              Looking to join a talented team building something extraordinary. 
-              Let&apos;s create games that provide the flow and joy that make life better.
+              Full Sail Game Design grad and self-directed technical generalist. I take ambiguous
+              problems from concept to production solo — looking for a Technical Game Designer role
+              where I can build the systems and tools that speed up the whole team.
             </motion.p>
             
             <motion.div

@@ -45,39 +45,39 @@ const SkillsLeadership = () => {
     skills: { name: string; level: number; description: string }[];
   }> = {
     'game-dev': {
-      title: 'Game Development',
+      title: 'Game & Engines',
       icon: <Gamepad2 className="w-5 h-5" />,
       color: 'from-emerald-400 to-teal-400',
       skills: [
-        { name: 'Unreal Engine 5', level: 90, description: 'Blueprints, C++, Level Design, AI Systems' },
-        { name: 'Behavior Trees', level: 85, description: 'Complex AI coordination and enemy behaviors' },
-        { name: 'Level Design', level: 80, description: 'Environmental storytelling and pacing' },
-        { name: 'Game Design', level: 90, description: 'Full Sail degree, strong theoretical foundation' },
-        { name: 'Blender', level: 70, description: 'Asset creation and basic 3D modeling' }
+        { name: 'Unreal Engine 5 + Blueprints', level: 90, description: 'Gameplay scripting, AI/behavior trees, level design' },
+        { name: 'C++ (Gameplay)', level: 75, description: 'Gameplay systems and engine-side scripting' },
+        { name: 'Cross-Engine: O3DE · Godot · Defold', level: 80, description: 'Rapid prototyping and systems across multiple engines' },
+        { name: '3C Fundamentals', level: 85, description: 'Character, camera, and controls feel' },
+        { name: 'Systems & Tools Design', level: 85, description: 'Tools and systems that unlock team iteration speed' }
       ]
     },
     'technical': {
-      title: 'Technical Skills',
+      title: 'Engineering',
       icon: <Code className="w-5 h-5" />,
       color: 'from-blue-400 to-indigo-400',
       skills: [
-        { name: 'JavaScript/React', level: 85, description: 'Modern web development, Next.js applications' },
-        { name: 'AI Integration', level: 80, description: 'Combining AI tools with game development workflows' },
-        { name: 'Version Control', level: 85, description: 'Git, GitHub Desktop, Perforce expertise' },
-        { name: 'Blueprint Systems', level: 90, description: 'Complex gameplay and UI systems in UE5' },
-        { name: 'Problem Solving', level: 95, description: 'Creative solutions under constraints' }
+        { name: 'TypeScript / Next.js / React', level: 88, description: 'Production web apps and real-time UIs' },
+        { name: 'Python', level: 78, description: 'Tooling, automation, and scripting' },
+        { name: 'Real-Time Media (AWS IVS)', level: 80, description: 'Low-latency live video at production scale' },
+        { name: 'Supabase / Postgres · Stripe · S3', level: 82, description: 'Event-driven backends, payments, storage' },
+        { name: 'Git', level: 85, description: 'Version control and release pipelines' }
       ]
     },
     'leadership': {
-      title: 'Leadership & Soft Skills',
+      title: 'Working Style',
       icon: <Users className="w-5 h-5" />,
       color: 'from-purple-400 to-pink-400',
       skills: [
-        { name: 'Team Leadership', level: 90, description: 'Led 7-person capstone team to success' },
-        { name: 'Conflict Resolution', level: 85, description: 'Direct but empathetic approach to team issues' },
-        { name: 'Creative Direction', level: 80, description: 'Balancing vision with team input' },
-        { name: 'Mentoring', level: 85, description: 'Supporting teammates and fostering growth' },
-        { name: 'Communication', level: 90, description: 'Clear, honest, and constructive feedback' }
+        { name: 'Autonomous Ownership', level: 92, description: 'Owns ambiguous problems solo, concept to production' },
+        { name: 'Written Communication', level: 90, description: 'Clear, rigorous docs and decision write-ups' },
+        { name: 'Cross-Discipline (T-shaped)', level: 85, description: 'Design, front-end, backend, and tools' },
+        { name: 'Fast Iteration', level: 90, description: 'Tight feedback loops and rapid prototyping' },
+        { name: 'Team Collaboration', level: 85, description: 'Led a 7-person capstone team to ship' }
       ]
     }
   };
@@ -174,8 +174,8 @@ const SkillsLeadership = () => {
               Technical Excellence
             </h2>
             <p className="text-xl text-emerald-100 max-w-4xl mx-auto leading-relaxed">
-              Combining deep technical skills with proven leadership abilities. 
-              I build both great code and great teams.
+              Multi-engine game development plus production-grade engineering — built for fast
+              iteration and autonomous ownership under ambiguity.
             </p>
           </motion.div>
 
