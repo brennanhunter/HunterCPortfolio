@@ -3,10 +3,11 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
-import { Radio, Smartphone, Rocket, ExternalLink } from 'lucide-react';
+import { Radio, Smartphone, ExternalLink } from 'lucide-react';
 
 const boxTech = ['Next.js', 'AWS IVS (low-latency video)', 'Stripe', 'Supabase / Postgres', 'S3', 'Geo-blocking', 'Referral tracking'];
 const justrackTech = ['Cross-platform (iOS + Android)', 'Real-time state', 'Full release pipeline'];
+const justrackShots = ['/projects/justrack-1.jpg', '/projects/justrack-2.jpg', '/projects/justrack-3.jpg'];
 
 const shots = [
   '/projects/boxstreamtv-home.jpg',
@@ -88,13 +89,10 @@ const ShippedProducts = () => {
             transition={{ duration: 0.8, delay: 0.35 }}
           >
             <div className="grid lg:grid-cols-2 gap-10 items-center">
-              <div className="order-2 lg:order-1 flex justify-center">
-                {/* Replace with phone screenshots when ready */}
-                <div className="w-56 h-[420px] rounded-[2.2rem] border-4 border-white/15 bg-white/5 flex items-center justify-center text-center p-6">
-                  <span className="text-blue-200/70 text-sm leading-relaxed">
-                    Phone screenshots coming<br />— live on iOS &amp; Android
-                  </span>
-                </div>
+              <div className="order-2 lg:order-1 grid grid-cols-3 gap-3">
+                {justrackShots.map((s, i) => (
+                  <Image key={s} src={s} alt={`JusTrack app screen ${i + 1}`} width={600} height={1304} className="rounded-2xl border border-white/10 w-full h-auto shadow-xl" />
+                ))}
               </div>
               <div className="order-1 lg:order-2 space-y-5">
                 <div className="flex items-center gap-3">
@@ -111,13 +109,16 @@ const ShippedProducts = () => {
                     <span key={t} className="bg-white/10 text-cyan-100 text-xs px-3 py-1 rounded-full border border-cyan-400/20">{t}</span>
                   ))}
                 </div>
-                <div className="flex flex-wrap gap-3 pt-1">
-                  <a href="#" className="inline-flex items-center gap-2 bg-white/10 text-white px-5 py-2.5 rounded-full border border-cyan-400/30 hover:bg-white/20 transition-colors font-medium text-sm">
-                    <Smartphone className="w-4 h-4" /> App Store
+                <div className="flex flex-wrap items-center gap-4 pt-1">
+                  <a
+                    href="https://apps.apple.com/us/app/justrack-basketball/id6758228246"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-5 py-2.5 rounded-full font-medium text-sm hover:from-cyan-400 hover:to-blue-400 transition-colors"
+                  >
+                    <Smartphone className="w-4 h-4" /> Download on the App Store
                   </a>
-                  <a href="#" className="inline-flex items-center gap-2 bg-white/10 text-white px-5 py-2.5 rounded-full border border-cyan-400/30 hover:bg-white/20 transition-colors font-medium text-sm">
-                    <Rocket className="w-4 h-4" /> Google Play
-                  </a>
+                  <span className="text-blue-200/60 text-sm">Also on Google Play</span>
                 </div>
               </div>
             </div>
