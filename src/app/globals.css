@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0e16;
+  --foreground: #F9FAFB;
 }
 
 @theme inline {
@@ -12,10 +12,78 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* ── Xtremery brand palette ──────────────────────────────────────────────
+   Remaps the Tailwind colors this site already uses onto the Xtremery
+   palette: aqua #00FFD1 · purple #7C3AED · blue #1D4ED8 · deep-navy #111827.
+   The dominant cyan→teal gradients become the signature aqua→purple. */
+@theme {
+  /* brand tokens (usable directly: bg-xtremery-purple, text-aqua-spark, …) */
+  --color-aqua-spark: #00FFD1;
+  --color-xtremery-purple: #7C3AED;
+  --color-xtremery-blue: #1D4ED8;
+  --color-deep-navy: #111827;
+  --color-off-white: #F9FAFB;
+
+  /* AQUA family — cyan + emerald + amber + green */
+  --color-cyan-100: #C8FCEF;
+  --color-cyan-200: #9FF7E4;
+  --color-cyan-300: #34E7C9;
+  --color-cyan-400: #00FFD1;
+  --color-cyan-500: #00E0B8;
+  --color-cyan-600: #0FB89A;
+  --color-cyan-900: #0B2A28;
+  --color-emerald-100: #C8FCEF;
+  --color-emerald-300: #34E7C9;
+  --color-emerald-400: #00FFD1;
+  --color-emerald-900: #0B2A28;
+  --color-amber-400: #00FFD1;
+  --color-green-400: #00FFD1;
+
+  /* PURPLE family — teal + purple + pink */
+  --color-teal-100: #ECDDFF;
+  --color-teal-200: #D9BFFF;
+  --color-teal-300: #BD9BF7;
+  --color-teal-400: #7C3AED;
+  --color-teal-500: #6D28D9;
+  --color-teal-600: #5B21B6;
+  --color-teal-900: #1C1438;
+  --color-purple-100: #ECDDFF;
+  --color-purple-200: #D9BFFF;
+  --color-purple-300: #BD9BF7;
+  --color-purple-400: #7C3AED;
+  --color-purple-500: #6D28D9;
+  --color-purple-900: #1C1438;
+  --color-pink-100: #ECDDFF;
+  --color-pink-200: #D9BFFF;
+  --color-pink-300: #BD9BF7;
+  --color-pink-400: #7C3AED;
+  --color-pink-900: #1C1438;
+
+  /* BLUE family — indigo + blue + orange */
+  --color-indigo-300: #7B93F7;
+  --color-indigo-400: #1D4ED8;
+  --color-indigo-500: #1E40AF;
+  --color-indigo-900: #111B33;
+  --color-blue-100: #DCE6FF;
+  --color-blue-200: #C2D3FF;
+  --color-blue-300: #7B93F7;
+  --color-blue-400: #1D4ED8;
+  --color-blue-500: #1E40AF;
+  --color-blue-900: #111B33;
+  --color-orange-300: #7B93F7;
+  --color-orange-400: #1D4ED8;
+  --color-orange-900: #111B33;
+
+  /* NAVY — slate */
+  --color-slate-700: #283145;
+  --color-slate-800: #1A2234;
+  --color-slate-900: #111827;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0a0e16;
+    --foreground: #F9FAFB;
   }
 }
 
