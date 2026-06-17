@@ -224,7 +224,7 @@ const HeroSection = () => {
             >
               <motion.a
                 href="mailto:huntercolemandesign@gmail.com"
-                whileHover={{ scale: 1.1, boxShadow: "0 10px 30px rgba(8, 145, 178, 0.4)" }}
+                whileHover={{ scale: 1.1, boxShadow: "0 10px 30px rgba(0, 255, 209, 0.4)" }}
                 whileTap={{ scale: 0.95 }}
                 className="flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:from-cyan-400 hover:to-teal-400"
               >
@@ -236,7 +236,7 @@ const HeroSection = () => {
                 href="https://www.linkedin.com/in/huntercgaming/"
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.1, boxShadow: "0 10px 30px rgba(13, 148, 136, 0.4)" }}
+                whileHover={{ scale: 1.1, boxShadow: "0 10px 30px rgba(124, 58, 237, 0.4)" }}
                 whileTap={{ scale: 0.95 }}
                 className="flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-full font-medium border border-teal-400/30 transition-all duration-300 hover:bg-white/20"
               >

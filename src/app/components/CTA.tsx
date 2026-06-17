@@ -157,7 +157,7 @@ const isInView = useInView(containerRef, {
             >
               <motion.a
                 href="mailto:huntercolemandesign@gmail.com"
-                whileHover={{ scale: 1.05, boxShadow: "0 20px 50px rgba(8, 145, 178, 0.4)" }}
+                whileHover={{ scale: 1.05, boxShadow: "0 20px 50px rgba(0, 255, 209, 0.4)" }}
                 whileTap={{ scale: 0.95 }}
                 className="flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:from-cyan-400 hover:to-teal-400 shadow-2xl"
               >

@@ -144,7 +144,7 @@ const BounceTargetGame: React.FC = () => {
     ball.trail.forEach((trailPoint) => {
       ctx.beginPath();
       ctx.arc(trailPoint.x, trailPoint.y, ball.radius * (trailPoint.alpha * 0.8), 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(8, 145, 178, ${trailPoint.alpha * 0.3})`; // cyan-600 with fading opacity
+      ctx.fillStyle = `rgba(0, 255, 209, ${trailPoint.alpha * 0.3})`; // cyan-600 with fading opacity
       ctx.fill();
     });
 
@@ -152,7 +152,7 @@ const BounceTargetGame: React.FC = () => {
     ctx.beginPath();
     ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
     ctx.fillStyle = "rgb(8, 145, 178)"; // cyan-600
-    ctx.shadowColor = "rgba(8, 145, 178, 0.7)";
+    ctx.shadowColor = "rgba(0, 255, 209, 0.7)";
     ctx.shadowBlur = 10;
     ctx.fill();
     ctx.shadowBlur = 0;
@@ -241,7 +241,7 @@ const BounceTargetGame: React.FC = () => {
 
   const spawnBounceParticles = (x: number, y: number) => {
     const state = gameStateRef.current;
-    const colors = ["rgba(8, 145, 178, 0.7)", "rgba(13, 148, 136, 0.7)"]; // cyan-600, teal-600
+    const colors = ["rgba(0, 255, 209, 0.7)", "rgba(124, 58, 237, 0.7)"]; // cyan-600, teal-600
     for (let i = 0; i < 20; i++) {
       state.particles.push({
         x,
@@ -308,7 +308,7 @@ const BounceTargetGame: React.FC = () => {
         vy: (Math.random() - 0.5) * 0.5,
         alpha: Math.random() * 0.5 + 0.2,
         size: Math.random() * 2 + 1,
-        color: "rgba(8, 145, 178, 0.7)", // cyan-600
+        color: "rgba(0, 255, 209, 0.7)", // cyan-600
       });
     }
   };
@@ -327,7 +327,7 @@ const BounceTargetGame: React.FC = () => {
         p.vx = (Math.random() - 0.5) * 0.5;
         p.vy = (Math.random() - 0.5) * 0.5;
         p.size = Math.random() * 2 + 1;
-        p.color = "rgba(8, 145, 178, 0.7)"; // cyan-600
+        p.color = "rgba(0, 255, 209, 0.7)"; // cyan-600
       }
     });
   };
@@ -505,9 +505,9 @@ const BounceTargetGame: React.FC = () => {
   useEffect(() => {
     controls.start({
       boxShadow: [
-        "0 4px 20px rgba(8, 145, 178, 0.3)", // cyan-600
-        "0 8px 30px rgba(13, 148, 136, 0.4)", // teal-600
-        "0 4px 20px rgba(8, 145, 178, 0.3)", // cyan-600
+        "0 4px 20px rgba(0, 255, 209, 0.3)", // cyan-600
+        "0 8px 30px rgba(124, 58, 237, 0.4)", // teal-600
+        "0 4px 20px rgba(0, 255, 209, 0.3)", // cyan-600
       ],
       transition: { repeat: Infinity, duration: 3 },
     });
@@ -559,15 +559,15 @@ const BounceTargetGame: React.FC = () => {
 
       <motion.div
         animate={controls}
-        whileHover={{ scale: 1.02, boxShadow: "0 20px 60px rgba(8, 145, 178, 0.3)" }}
+        whileHover={{ scale: 1.02, boxShadow: "0 20px 60px rgba(0, 255, 209, 0.3)" }}
         className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl p-8 max-w-5xl w-full relative overflow-hidden border border-cyan-400/20 shadow-2xl"
       >
         <motion.div
           animate={{
             borderColor: [
-              "rgba(8, 145, 178, 0.3)",
-              "rgba(13, 148, 136, 0.3)",
-              "rgba(8, 145, 178, 0.3)",
+              "rgba(0, 255, 209, 0.3)",
+              "rgba(124, 58, 237, 0.3)",
+              "rgba(0, 255, 209, 0.3)",
             ],
           }}
           transition={{ repeat: Infinity, duration: 3 }}
