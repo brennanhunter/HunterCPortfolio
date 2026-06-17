@@ -516,7 +516,7 @@ const BounceTargetGame: React.FC = () => {
   // Floating particle component for background
   const FloatingParticle = ({ delay = 0, size = 4, duration = 8 }) => (
     <motion.div
-      className="absolute rounded-full bg-gradient-to-r from-cyan-400 to-teal-400 opacity-40"
+      className="absolute rounded-full bg-xtremery-purple opacity-20"
       style={{
         width: size,
         height: size,
@@ -542,7 +542,7 @@ const BounceTargetGame: React.FC = () => {
       initial={{ opacity: 0, y: 60 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="min-h-screen bg-gradient-to-br from-slate-900 via-cyan-900 to-teal-900 flex flex-col items-center justify-center p-6 relative overflow-hidden"
+      className="min-h-screen bg-off-white text-deep-navy flex flex-col items-center justify-center p-6 relative overflow-hidden"
     >
       {/* Background floating particles */}
       <div className="absolute inset-0">
@@ -551,34 +551,15 @@ const BounceTargetGame: React.FC = () => {
         ))}
       </div>
 
-      {/* Parallax background elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-32 right-20 w-80 h-80 rounded-full bg-gradient-to-br from-cyan-400 to-transparent blur-3xl" />
-        <div className="absolute bottom-20 left-32 w-96 h-96 rounded-full bg-gradient-to-br from-teal-400 to-transparent blur-3xl" />
-      </div>
-
       <motion.div
-        animate={controls}
-        whileHover={{ scale: 1.02, boxShadow: "0 20px 60px rgba(0, 255, 209, 0.3)" }}
-        className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl p-8 max-w-5xl w-full relative overflow-hidden border border-cyan-400/20 shadow-2xl"
+        className="bg-off-white rounded-2xl p-6 sm:p-8 max-w-5xl w-full relative overflow-hidden border-4 border-deep-navy shadow-[12px_12px_0_#111827]"
       >
-        <motion.div
-          animate={{
-            borderColor: [
-              "rgba(0, 255, 209, 0.3)",
-              "rgba(124, 58, 237, 0.3)",
-              "rgba(0, 255, 209, 0.3)",
-            ],
-          }}
-          transition={{ repeat: Infinity, duration: 3 }}
-          className="absolute inset-0 border-2 rounded-2xl pointer-events-none"
-        />
         <div className="relative z-10">
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-300 to-teal-300 bg-clip-text text-transparent mb-4 text-center"
+            className="text-4xl md:text-5xl font-black uppercase text-deep-navy mb-4 text-center"
           >
             Bounce Target
           </motion.h1>
@@ -586,7 +567,7 @@ const BounceTargetGame: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg text-cyan-100 mb-6 text-center"
+            className="text-lg font-medium text-deep-navy/70 mb-6 text-center"
           >
             Drag and release to match the bounce goal!
           </motion.p>
@@ -601,7 +582,7 @@ const BounceTargetGame: React.FC = () => {
               ref={canvasRef}
               width={800}
               height={400}
-              className="relative border-2 border-cyan-400/30 rounded-xl w-full bg-gradient-to-br from-slate-800/50 to-slate-700/50 backdrop-blur-sm"
+              className="relative border-4 border-deep-navy rounded-xl w-full bg-deep-navy shadow-[8px_8px_0_#111827]"
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -610,7 +591,7 @@ const BounceTargetGame: React.FC = () => {
                 scale: bounces === targetBounces && resultMessage ? 1.1 : 1,
               }}
               transition={{ duration: 0.3 }}
-              className="absolute top-4 left-4 flex items-center gap-2 bg-gradient-to-r from-cyan-600/90 to-teal-600/90 backdrop-blur-sm text-white px-4 py-2 rounded-full shadow-lg border border-cyan-400/30"
+              className="absolute top-4 left-4 flex items-center gap-2 bg-aqua-spark text-deep-navy px-4 py-2 rounded-full border-4 border-deep-navy shadow-[4px_4px_0_#111827] font-black"
             >
               <span className="text-sm font-bold">🎯 Goal: {targetBounces}</span>
               <span className="text-sm font-bold">💥 Bounces: {bounces}</span>
@@ -621,7 +602,7 @@ const BounceTargetGame: React.FC = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.5 }}
-                className="absolute top-20 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-cyan-600/90 to-teal-600/90 backdrop-blur-sm text-white px-6 py-3 rounded-lg shadow-lg border border-cyan-400/30"
+                className="absolute top-20 left-1/2 transform -translate-x-1/2 bg-xtremery-purple text-off-white px-6 py-3 rounded-lg border-4 border-deep-navy shadow-[5px_5px_0_#111827] font-black"
               >
                 <span className="text-lg font-bold">{resultMessage}</span>
               </motion.div>
@@ -631,12 +612,12 @@ const BounceTargetGame: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="mt-8 p-6 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-xl border border-cyan-400/20"
+            className="mt-8 p-6 bg-off-white rounded-xl border-4 border-deep-navy shadow-[8px_8px_0_#111827]"
           >
-            <h2 className="text-2xl font-bold bg-gradient-to-r from-cyan-300 to-teal-300 bg-clip-text text-transparent mb-4">
+            <h2 className="text-2xl font-black text-deep-navy mb-4">
               The Story Behind Bounce Target
             </h2>
-            <p className="text-cyan-100 leading-relaxed">
+            <p className="text-deep-navy/80 leading-relaxed font-medium">
               Bounce Target was inspired by a fun game I played with my boys around our kitchen table. We&apos;d take turns bouncing a ball across the table, challenging each other to hit a specific number of bounces before it went off the edge. The first player aimed for one bounce, the next for two, and so on. It was all about precision, timing, and a bit of friendly competition. I created this digital version to capture that same joy and share it with others, turning our family game into a playful puzzle for everyone to enjoy!
             </p>
           </motion.div>
