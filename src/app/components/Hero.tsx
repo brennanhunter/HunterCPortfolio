@@ -1,270 +1,110 @@
-'use client';   
+'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
-import { motion, useScroll, useTransform, useAnimation } from 'framer-motion';
-import { ChevronDown, Mail, Linkedin, Gamepad2, Rocket, Code } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Mail, Linkedin, Gamepad2, Rocket, Code, ArrowRight } from 'lucide-react';
+
+const stats = [
+  { icon: Gamepad2, title: 'Multi-Engine', desc: 'UE5 & Blueprints · O3DE · Godot · Defold', hover: 'hover:bg-aqua-spark' },
+  { icon: Rocket, title: 'Shipped to Production', desc: 'JusTrack on iOS & Android · BoxStreamTV live', hover: 'hover:bg-xtremery-purple hover:text-white' },
+  { icon: Code, title: 'Full-Stack', desc: 'TypeScript · Next.js · AWS IVS · Stripe · Supabase', hover: 'hover:bg-xtremery-blue hover:text-white' },
+];
+
+const roles = ['Technical Game Designer', 'Multi-Engine Generalist', 'Full-Stack Developer'];
 
 const HeroSection = () => {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"]
-  });
-  
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, -200]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, -100]);
-  const y3 = useTransform(scrollYProgress, [0, 1], [0, -50]);
-  const opacity = useTransform(scrollYProgress, [0, 1.5], [1, 0]);
-  
-  const controls = useAnimation();
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: e.clientX / window.innerWidth,
-        y: e.clientY / window.innerHeight
-      });
-    };
-    
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
-  useEffect(() => {
-    controls.start({
-      rotate: [0, 360],
-      transition: { duration: 20, repeat: Infinity, ease: "linear" }
-    });
-  }, [controls]);
-
-  const FloatingParticle = ({ delay = 0, size = 4, duration = 8 }) => (
-    <motion.div
-      className="absolute rounded-full bg-gradient-to-r from-cyan-400 to-teal-400 opacity-60"
-      style={{
-        width: size,
-        height: size,
-        left: `${Math.random() * 100}%`,
-        top: `${Math.random() * 100}%`
-      }}
-      animate={{
-        y: [-20, -60, -20],
-        x: [-10, 10, -10],
-        opacity: [0.6, 1, 0.6],
-      }}
-      transition={{
-        duration,
-        delay,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }}
-    />
-  );
-
   return (
-    <div ref={containerRef} className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-cyan-900 to-teal-900">
-      {/* Animated Background Particles */}
-      <div className="absolute inset-0">
-        {[...Array(20)].map((_, i) => (
-          <FloatingParticle key={i} delay={i * 0.5} size={Math.random() * 6 + 2} duration={8 + Math.random() * 4} />
-        ))}
-      </div>
+    <section className="relative flex min-h-screen items-center overflow-hidden bg-[#F4EDD8] px-6 py-20 text-deep-navy">
+      <div className="mx-auto w-full max-w-6xl">
+        <motion.span
+          initial={{ opacity: 0, y: -16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="inline-block rounded-md border-4 border-deep-navy bg-deep-navy px-4 py-1.5 text-sm font-black uppercase tracking-widest text-[#F4EDD8] shadow-[5px_5px_0_#7C3AED]"
+        >
+          Portfolio
+        </motion.span>
 
-      {/* Parallax Background Elements */}
-      <motion.div
-        style={{ y: y1 }}
-        className="absolute inset-0 opacity-20"
-      >
-        <div className="absolute top-20 left-20 w-64 h-64 rounded-full bg-gradient-to-br from-cyan-400 to-transparent blur-3xl" />
-        <div className="absolute bottom-40 right-32 w-96 h-96 rounded-full bg-gradient-to-br from-teal-400 to-transparent blur-3xl" />
-      </motion.div>
+        <motion.h1
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mt-6 text-6xl font-black uppercase leading-[0.9] tracking-tight sm:text-7xl md:text-8xl"
+        >
+          Hunter
+          <br />
+          <span className="mt-2 inline-block border-4 border-deep-navy bg-aqua-spark px-3 shadow-[8px_8px_0_#111827]">
+            Coleman
+          </span>
+        </motion.h1>
 
-      <motion.div
-        style={{ y: y2 }}
-        className="absolute inset-0 opacity-10"
-      >
-        <div className="absolute top-60 right-20 w-48 h-48 rounded-full bg-gradient-to-br from-cyan-300 to-transparent blur-2xl" />
-        <div className="absolute bottom-20 left-40 w-80 h-80 rounded-full bg-gradient-to-br from-teal-300 to-transparent blur-2xl" />
-      </motion.div>
-
-      {/* Floating Geometric Shapes */}
-      <motion.div
-        style={{ y: y3 }}
-        className="absolute inset-0"
-      >
         <motion.div
-          animate={controls}
-          className="absolute top-32 right-1/4 w-4 h-4 border-2 border-cyan-400 opacity-40"
-          style={{
-            transform: `translate(${mousePosition.x * 20}px, ${mousePosition.y * 20}px)`
-          }}
-        />
-        <motion.div
-          animate={{
-            rotate: [0, -360],
-            transition: { duration: 25, repeat: Infinity, ease: "linear" }
-          }}
-          className="absolute bottom-1/3 left-1/4 w-6 h-6 bg-gradient-to-br from-teal-400 to-cyan-400 opacity-30 transform rotate-45"
-          style={{
-            transform: `translate(${mousePosition.x * -15}px, ${mousePosition.y * -15}px) rotate(45deg)`
-          }}
-        />
-      </motion.div>
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-7 flex flex-wrap gap-3"
+        >
+          {roles.map((r) => (
+            <span
+              key={r}
+              className="rounded-lg border-[3px] border-deep-navy bg-white px-4 py-2 text-sm font-bold shadow-[4px_4px_0_#111827] sm:text-base"
+            >
+              {r}
+            </span>
+          ))}
+        </motion.div>
 
-      {/* Main Content */}
-      <motion.div
-        style={{ opacity }}
-        className="relative z-10 min-h-screen flex items-center justify-center px-6"
-      >
-        <div className="max-w-6xl mx-auto text-center">
-          {/* Name and Title */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-8"
-          >
-            <motion.h1
-              className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-cyan-300 via-teal-300 to-cyan-400 bg-clip-text text-transparent mb-4"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              Hunter Coleman
-            </motion.h1>
-            <motion.div
-              initial={{ width: 0 }}
-              animate={{ width: "100%" }}
-              transition={{ duration: 1, delay: 0.8 }}
-              className="h-1 bg-gradient-to-r from-cyan-400 to-teal-400 mx-auto max-w-md mb-6"
-            />
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1 }}
-              className="text-xl md:text-2xl text-cyan-100 font-light"
-            >
-              Technical Game Designer · Multi-Engine Generalist · Full-Stack Developer
-            </motion.p>
-          </motion.div>
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-8 max-w-3xl text-xl font-medium leading-relaxed md:text-2xl"
+        >
+          I prototype fast across engines and ship products end to end — from{' '}
+          <mark className="bg-xtremery-purple px-1 font-bold text-white">UE5 gameplay systems</mark> to a{' '}
+          <mark className="bg-xtremery-blue px-1 font-bold text-white">live streaming platform</mark> serving real audiences.
+        </motion.p>
 
-          {/* Philosophy Statement */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            className="mb-12 max-w-4xl mx-auto"
-          >
-            <motion.p
-              className="text-2xl md:text-3xl text-white leading-relaxed font-light"
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              I prototype fast across engines and ship products end to end — from
-              <span className="text-cyan-300 font-medium"> UE5 gameplay systems</span> to a
-              <span className="text-cyan-300 font-medium"> live streaming platform</span> serving real audiences.
-            </motion.p>
-          </motion.div>
-
-          {/* Key Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.4 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-4xl mx-auto"
-          >
-            <motion.div
-              whileHover={{ scale: 1.1, rotateY: 5 }}
-              className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-cyan-400/30"
-            >
-              <Gamepad2 className="w-12 h-12 text-cyan-400 mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-white mb-2">Multi-Engine</h3>
-              <p className="text-cyan-100">UE5 &amp; Blueprints · O3DE · Godot · Defold</p>
-            </motion.div>
-
-            <motion.div
-              whileHover={{ scale: 1.1, rotateY: 5 }}
-              className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-teal-400/30"
-            >
-              <Rocket className="w-12 h-12 text-teal-400 mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-white mb-2">Shipped to Production</h3>
-              <p className="text-teal-100">JusTrack on iOS &amp; Android · BoxStreamTV live</p>
-            </motion.div>
-
-            <motion.div
-              whileHover={{ scale: 1.1, rotateY: 5 }}
-              className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-cyan-400/30"
-            >
-              <Code className="w-12 h-12 text-cyan-400 mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-white mb-2">Full-Stack</h3>
-              <p className="text-cyan-100">TypeScript · Next.js · AWS IVS · Stripe · Supabase</p>
-            </motion.div>
-          </motion.div>
-
-          {/* CTA and Contact */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.6 }}
-            className="space-y-8"
-          >
-            <motion.p
-              className="text-xl text-cyan-100 max-w-3xl mx-auto"
-              whileHover={{ scale: 1.02 }}
-            >
-              Full Sail Game Design grad and self-directed technical generalist. I take ambiguous
-              problems from concept to production solo — looking for a Technical Game Designer role
-              where I can build the systems and tools that speed up the whole team.
-            </motion.p>
-            
-            <motion.div
-              className="flex flex-wrap justify-center gap-4"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.8 }}
-            >
-              <motion.a
-                href="mailto:huntercolemandesign@gmail.com"
-                whileHover={{ scale: 1.1, boxShadow: "0 10px 30px rgba(0, 255, 209, 0.4)" }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:from-cyan-400 hover:to-teal-400"
+        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+          {stats.map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <motion.div
+                key={s.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 * i }}
+                className={`rounded-xl border-4 border-deep-navy bg-white p-6 shadow-[8px_8px_0_#111827] transition-all duration-150 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[12px_12px_0_#111827] ${s.hover}`}
               >
-                <Mail className="w-5 h-5" />
-                Let&apos;s Connect
-              </motion.a>
-              
-              <motion.a
-                href="https://www.linkedin.com/in/huntercgaming/"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.1, boxShadow: "0 10px 30px rgba(124, 58, 237, 0.4)" }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-full font-medium border border-teal-400/30 transition-all duration-300 hover:bg-white/20"
-              >
-                <Linkedin className="w-5 h-5" />
-                LinkedIn
-              </motion.a>
-            </motion.div>
-          </motion.div>
-
-          {/* Scroll Indicator */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2 }}
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-          >
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="flex flex-col items-center text-cyan-300"
-            >
-              <span className="text-sm mb-2">Scroll to explore</span>
-              <ChevronDown className="w-6 h-6" />
-            </motion.div>
-          </motion.div>
+                <Icon className="h-10 w-10" strokeWidth={2.5} />
+                <h3 className="mt-4 text-2xl font-black">{s.title}</h3>
+                <p className="mt-1 font-medium">{s.desc}</p>
+              </motion.div>
+            );
+          })}
         </div>
-      </motion.div>
-    </div>
+
+        <div className="mt-12 flex flex-wrap gap-4">
+          <motion.a
+            href="mailto:huntercolemandesign@gmail.com"
+            whileTap={{ x: 4, y: 4, boxShadow: '2px 2px 0 #111827' }}
+            className="inline-flex items-center gap-2 rounded-lg border-4 border-deep-navy bg-xtremery-purple px-6 py-3 text-lg font-black text-white shadow-[6px_6px_0_#111827] transition-all duration-150 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[9px_9px_0_#111827]"
+          >
+            <Mail className="h-5 w-5" /> Let&apos;s Connect <ArrowRight className="h-5 w-5" />
+          </motion.a>
+          <motion.a
+            href="https://www.linkedin.com/in/huntercgaming/"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileTap={{ x: 4, y: 4, boxShadow: '2px 2px 0 #111827' }}
+            className="inline-flex items-center gap-2 rounded-lg border-4 border-deep-navy bg-white px-6 py-3 text-lg font-black shadow-[6px_6px_0_#111827] transition-all duration-150 hover:-translate-x-1 hover:-translate-y-1 hover:bg-aqua-spark hover:shadow-[9px_9px_0_#111827]"
+          >
+            <Linkedin className="h-5 w-5" /> LinkedIn
+          </motion.a>
+        </div>
+      </div>
+    </section>
   );
 };
 
