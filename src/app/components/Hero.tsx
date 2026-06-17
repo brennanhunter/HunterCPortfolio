@@ -14,13 +14,13 @@ const roles = ['Technical Game Designer', 'Multi-Engine Generalist', 'Full-Stack
 
 const HeroSection = () => {
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden bg-[#F4EDD8] px-6 py-20 text-deep-navy">
+    <section className="relative flex min-h-screen items-center overflow-hidden bg-off-white px-6 py-20 text-deep-navy">
       <div className="mx-auto w-full max-w-6xl">
         <motion.span
           initial={{ opacity: 0, y: -16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="inline-block rounded-md border-4 border-deep-navy bg-deep-navy px-4 py-1.5 text-sm font-black uppercase tracking-widest text-[#F4EDD8] shadow-[5px_5px_0_#7C3AED]"
+          className="inline-block rounded-md border-4 border-deep-navy bg-deep-navy px-4 py-1.5 text-sm font-black uppercase tracking-widest text-off-white shadow-[5px_5px_0_#7C3AED]"
         >
           Portfolio
         </motion.span>
@@ -47,7 +47,7 @@ const HeroSection = () => {
           {roles.map((r) => (
             <span
               key={r}
-              className="rounded-lg border-[3px] border-deep-navy bg-white px-4 py-2 text-sm font-bold shadow-[4px_4px_0_#111827] sm:text-base"
+              className="rounded-lg border-[3px] border-deep-navy bg-off-white px-4 py-2 text-sm font-bold shadow-[4px_4px_0_#111827] sm:text-base"
             >
               {r}
             </span>
@@ -75,7 +75,7 @@ const HeroSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 * i }}
-                className={`rounded-xl border-4 border-deep-navy bg-white p-6 shadow-[8px_8px_0_#111827] transition-all duration-150 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[12px_12px_0_#111827] ${s.hover}`}
+                className={`rounded-xl border-4 border-deep-navy bg-off-white p-6 shadow-[8px_8px_0_#111827] transition-all duration-150 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[12px_12px_0_#111827] ${s.hover}`}
               >
                 <Icon className="h-10 w-10" strokeWidth={2.5} />
                 <h3 className="mt-4 text-2xl font-black">{s.title}</h3>
@@ -94,11 +94,11 @@ const HeroSection = () => {
             <Mail className="h-5 w-5" /> Let&apos;s Connect <ArrowRight className="h-5 w-5" />
           </motion.a>
           <motion.a
-            href="https://www.linkedin.com/in/huntercgaming/"
+            href="https://www.linkedin.com/in/huntercdesign/"
             target="_blank"
             rel="noopener noreferrer"
             whileTap={{ x: 4, y: 4, boxShadow: '2px 2px 0 #111827' }}
-            className="inline-flex items-center gap-2 rounded-lg border-4 border-deep-navy bg-white px-6 py-3 text-lg font-black shadow-[6px_6px_0_#111827] transition-all duration-150 hover:-translate-x-1 hover:-translate-y-1 hover:bg-aqua-spark hover:shadow-[9px_9px_0_#111827]"
+            className="inline-flex items-center gap-2 rounded-lg border-4 border-deep-navy bg-off-white px-6 py-3 text-lg font-black shadow-[6px_6px_0_#111827] transition-all duration-150 hover:-translate-x-1 hover:-translate-y-1 hover:bg-aqua-spark hover:shadow-[9px_9px_0_#111827]"
           >
             <Linkedin className="h-5 w-5" /> LinkedIn
           </motion.a>

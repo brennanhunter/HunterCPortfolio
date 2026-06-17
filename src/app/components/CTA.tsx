@@ -1,311 +1,71 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
-import { motion, useScroll, useTransform, useInView } from 'framer-motion';
-import { Mail, Linkedin, Send, Gamepad2, Rocket, Brain, Zap, Star, ArrowRight, Copy, CheckCircle } from 'lucide-react';
+import React, { useState } from 'react';
+import { Mail, Linkedin, Copy, CheckCircle, ArrowRight } from 'lucide-react';
 
-const ContactCTA = () => {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-  
-  const y1 = useTransform(scrollYProgress, [0, 1], [100, -100]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [50, -50]);
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 1.1]);
-  
-const isInView = useInView(containerRef, { 
-  once: true, 
-  amount: 0.1,  // Reduced from 0.3 to 0.1
-  margin: "0px 0px -100px 0px"  // Trigger earlier
-});  const [emailCopied, setEmailCopied] = useState(false);
+const props: [string, string, string, string][] = [
+  ['Multi-Engine Prototyping', 'UE5 + Blueprints, O3DE, Godot, Defold', 'bg-aqua-spark', 'text-deep-navy'],
+  ['Ships End to End', 'From UE5 systems to a live streaming platform and apps on both stores', 'bg-xtremery-purple', 'text-off-white'],
+  ['Systems & Tools', 'Builds the systems and tools that speed up the whole team', 'bg-xtremery-blue', 'text-off-white'],
+  ['Autonomous Ownership', 'Takes ambiguous problems from concept to production, solo', 'bg-off-white', 'text-deep-navy'],
+];
 
-  const valueProps = [
-    {
-      icon: <Gamepad2 className="w-5 h-5" />,
-      title: "Multi-Engine Prototyping",
-      description: "UE5 + Blueprints, O3DE, Godot, Defold — fast iteration across engines"
-    },
-    {
-      icon: <Rocket className="w-5 h-5" />,
-      title: "Ships End to End",
-      description: "From UE5 gameplay systems to a live streaming platform and apps on both stores"
-    },
-    {
-      icon: <Zap className="w-5 h-5" />,
-      title: "Systems & Tools",
-      description: "Designs the systems and tools that unlock the whole team's iteration speed"
-    },
-    {
-      icon: <Brain className="w-5 h-5" />,
-      title: "Autonomous Ownership",
-      description: "Takes ambiguous problems from concept to production, solo"
-    }
-  ];
-
-  const projectHighlights = [
-    { name: "Dawn and Dusk", role: "UE5 Capstone · Systems & AI", team: "Team of 7" },
-    { name: "BoxStreamTV", role: "Live PPV Platform", constraint: "Next.js · AWS IVS · Stripe" },
-    { name: "JusTrack", role: "Cross-Platform App", story: "iOS + Android" },
-    { name: "Cross-Engine", role: "O3DE · Godot · Defold", pressure: "Prototypes" }
-  ];
-
-  const handleEmailCopy = async () => {
+export default function ContactCTA() {
+  const [copied, setCopied] = useState(false);
+  const copy = async () => {
     try {
       await navigator.clipboard.writeText('huntercolemandesign@gmail.com');
-      setEmailCopied(true);
-      setTimeout(() => setEmailCopied(false), 2000);
-    } catch (err) {
-      console.error('Failed to copy email:', err);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (e) {
+      console.error(e);
     }
   };
-
-  const FloatingStar = ({ delay = 0, size = 4, duration = 8 }) => (
-    <motion.div
-      className="absolute"
-      style={{
-        left: `${Math.random() * 100}%`,
-        top: `${Math.random() * 100}%`,
-      }}
-      animate={{
-        y: [-10, -30, -10],
-        x: [-5, 5, -5],
-        opacity: [0.4, 0.8, 0.4],
-        rotate: [0, 180, 360],
-      }}
-      transition={{
-        duration,
-        delay,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }}
-    >
-      <Star className={`w-${size} h-${size} text-cyan-300 opacity-60`} />
-    </motion.div>
-  );
-
   return (
-    <div ref={containerRef} className="relative min-h-screen bg-gradient-to-br from-slate-900 via-cyan-900 to-teal-900 overflow-hidden">
-      {/* Floating Stars Background */}
-      <div className="absolute inset-0">
-        {[...Array(15)].map((_, i) => (
-          <FloatingStar key={i} delay={i * 0.4} size={3 + Math.random() * 3} duration={6 + Math.random() * 4} />
-        ))}
-      </div>
+    <section className="bg-deep-navy px-6 py-24 text-off-white">
+      <div className="mx-auto max-w-5xl text-center">
+        <span className="inline-block rounded-md border-4 border-off-white bg-aqua-spark px-4 py-1.5 text-sm font-black uppercase tracking-widest text-deep-navy shadow-[5px_5px_0_#7C3AED]">
+          Let&apos;s Work Together
+        </span>
+        <h2 className="mt-6 text-5xl font-black uppercase md:text-7xl">
+          Let&apos;s <span className="inline-block border-4 border-off-white bg-xtremery-purple px-3 shadow-[8px_8px_0_#00FFD1]">Connect</span>
+        </h2>
+        <p className="mx-auto mt-6 max-w-2xl text-lg font-medium text-off-white/80 md:text-xl">
+          Looking for a Technical Game Designer role where I can prototype systems and ship the tools that unlock a team.
+        </p>
 
-      {/* Parallax Background Elements */}
-      <motion.div
-        style={{ y: y1, scale }}
-        className="absolute inset-0 opacity-20"
-      >
-        <div className="absolute top-20 right-20 w-96 h-96 rounded-full bg-gradient-to-br from-cyan-400 to-transparent blur-3xl" />
-        <div className="absolute bottom-32 left-32 w-80 h-80 rounded-full bg-gradient-to-br from-teal-400 to-transparent blur-3xl" />
-      </motion.div>
-
-      <motion.div
-        style={{ y: y2 }}
-        className="absolute inset-0 opacity-10"
-      >
-        <div className="absolute top-1/2 left-1/2 w-64 h-64 rounded-full bg-gradient-to-br from-cyan-300 to-transparent blur-2xl transform -translate-x-1/2 -translate-y-1/2" />
-      </motion.div>
-
-      <div className="relative z-10 min-h-screen flex items-center py-20 px-6">
-        <div className="max-w-6xl mx-auto w-full">
-          
-          {/* Main CTA Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+        <div className="mt-10 flex flex-wrap justify-center gap-4">
+          <a
+            href="mailto:huntercolemandesign@gmail.com"
+            className="inline-flex items-center gap-2 rounded-lg border-4 border-off-white bg-xtremery-purple px-6 py-3 text-lg font-black shadow-[6px_6px_0_#00FFD1] transition-all duration-150 hover:-translate-x-1 hover:-translate-y-1"
           >
-            <motion.span
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-block bg-gradient-to-r from-cyan-400 to-teal-400 text-slate-900 px-6 py-2 rounded-full text-sm font-bold mb-6"
-            >
-              READY TO BUILD SOMETHING EXTRAORDINARY
-            </motion.span>
-            
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-cyan-300 to-teal-300 bg-clip-text text-transparent mb-8"
-            >
-              Let&apos;s Connect
-            </motion.h2>
-            
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-2xl text-cyan-100 max-w-4xl mx-auto leading-relaxed mb-12"
-            >
-              I&apos;m looking for a team that believes games can change lives. 
-              Together, we can create experiences that provide flow, challenge, and joy.
-            </motion.p>
-
-            {/* Primary CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
-            >
-              <motion.a
-                href="mailto:huntercolemandesign@gmail.com"
-                whileHover={{ scale: 1.05, boxShadow: "0 20px 50px rgba(0, 255, 209, 0.4)" }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:from-cyan-400 hover:to-teal-400 shadow-2xl"
-              >
-                <Mail className="w-6 h-6" />
-                Start the Conversation
-                <ArrowRight className="w-5 h-5" />
-              </motion.a>
-              
-              <motion.button
-                onClick={handleEmailCopy}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-3 bg-white/10 backdrop-blur-sm text-white px-6 py-4 rounded-full font-medium border border-cyan-400/30 transition-all duration-300 hover:bg-white/20 hover:border-cyan-400/50"
-              >
-                {emailCopied ? (
-                  <>
-                    <CheckCircle className="w-5 h-5 text-green-400" />
-                    Email Copied!
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-5 h-5" />
-                    Copy Email
-                  </>
-                )}
-              </motion.button>
-            </motion.div>
-          </motion.div>
-
-          {/* Contact Info & Social */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 1 }}
-            className="grid md:grid-cols-2 gap-12 mb-16"
+            <Mail className="h-5 w-5" /> Email Me <ArrowRight className="h-5 w-5" />
+          </a>
+          <button
+            onClick={copy}
+            className="inline-flex items-center gap-2 rounded-lg border-4 border-off-white bg-off-white px-6 py-3 text-lg font-black text-deep-navy shadow-[6px_6px_0_#00FFD1] transition-all duration-150 hover:-translate-x-1 hover:-translate-y-1"
           >
-            {/* Contact Details */}
-            <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl p-8 border border-cyan-400/20">
-              <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                <Send className="w-6 h-6 text-cyan-400" />
-                Get In Touch
-              </h3>
-              
-              <div className="space-y-4">
-                <motion.div
-                  whileHover={{ scale: 1.02, x: 5 }}
-                  className="flex items-center gap-4 p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300"
-                >
-                  <Mail className="w-5 h-5 text-cyan-400" />
-                  <div>
-                    <p className="text-white font-medium">Email</p>
-                    <p className="text-cyan-200 text-sm">huntercolemandesign@gmail.com</p>
-                  </div>
-                </motion.div>
-                
-                <motion.a
-                  href="https://www.linkedin.com/in/huntercgaming/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.02, x: 5 }}
-                  className="flex items-center gap-4 p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300 block"
-                >
-                  <Linkedin className="w-5 h-5 text-cyan-400" />
-                  <div>
-                    <p className="text-white font-medium">LinkedIn</p>
-                    <p className="text-cyan-200 text-sm">huntercgaming</p>
-                  </div>
-                </motion.a>
-              </div>
+            {copied ? (<><CheckCircle className="h-5 w-5" /> Copied!</>) : (<><Copy className="h-5 w-5" /> Copy Email</>)}
+          </button>
+          <a
+            href="https://www.linkedin.com/in/huntercdesign"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-lg border-4 border-off-white bg-xtremery-blue px-6 py-3 text-lg font-black shadow-[6px_6px_0_#00FFD1] transition-all duration-150 hover:-translate-x-1 hover:-translate-y-1"
+          >
+            <Linkedin className="h-5 w-5" /> LinkedIn
+          </a>
+        </div>
+
+        <div className="mt-14 grid gap-5 text-left sm:grid-cols-2">
+          {props.map(([t, d, bg, tx]) => (
+            <div key={t} className={`rounded-xl border-4 border-off-white p-5 shadow-[6px_6px_0_#00FFD1] ${bg} ${tx}`}>
+              <h3 className="text-lg font-black">{t}</h3>
+              <p className="mt-1 font-medium">{d}</p>
             </div>
-
-            {/* What I Bring */}
-            <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl p-8 border border-teal-400/20">
-              <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                <Gamepad2 className="w-6 h-6 text-teal-400" />
-                What I Bring
-              </h3>
-              
-              <div className="grid gap-4">
-                {valueProps.map((prop, index) => (
-                  <motion.div
-                    key={prop.title}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.4, delay: 1.2 + index * 0.1 }}
-                    whileHover={{ scale: 1.02 }}
-                    className="flex items-start gap-3 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300"
-                  >
-                    <div className="text-teal-400 mt-1">
-                      {prop.icon}
-                    </div>
-                    <div>
-                      <h4 className="text-white font-medium text-sm">{prop.title}</h4>
-                      <p className="text-teal-200 text-xs leading-relaxed">{prop.description}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Project Summary */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 1.4 }}
-            className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl p-8 border border-cyan-400/20 mb-12"
-          >
-            <h3 className="text-2xl font-bold text-center text-white mb-8">Portfolio Highlights</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {projectHighlights.map((project, index) => (
-                <motion.div
-                  key={project.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.4, delay: 1.6 + index * 0.1 }}
-                  whileHover={{ y: -3, scale: 1.02 }}
-                  className="text-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300"
-                >
-                  <h4 className="text-white font-bold mb-1">{project.name}</h4>
-                  <p className="text-cyan-300 text-sm mb-2">{project.role}</p>
-                  <span className="inline-block bg-gradient-to-r from-cyan-400 to-teal-400 text-slate-900 px-2 py-1 rounded text-xs font-bold">
-                    {project.team || project.constraint || project.story || project.pressure}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Final Statement */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.8, delay: 1.8 }}
-            className="text-center"
-          >
-            <blockquote className="text-xl md:text-2xl text-cyan-100 italic max-w-4xl mx-auto relative leading-relaxed">
-              <span className="text-cyan-400 text-4xl absolute -top-4 -left-4 opacity-50">&quot;</span>
-              Ready to join a team that&apos;s building something extraordinary. 
-              Let&apos;s create games that provide the flow and wonder this world needs.
-              <span className="text-cyan-400 text-4xl absolute -bottom-6 -right-4 opacity-50">&quot;</span>
-            </blockquote>
-            <cite className="text-cyan-300 mt-6 block text-lg font-medium">- Hunter Coleman</cite>
-          </motion.div>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
-};
-
-export default ContactCTA;
+}

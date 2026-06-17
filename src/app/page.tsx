@@ -3,7 +3,6 @@ import FeaturedProject from "./components/Featured";
 import ShippedProducts from "./components/ShippedProducts";
 import BounceTargetGame from "./components/BounceTargetGame";
 import InnovationShowcase from "./components/Innovation";
-import PersonalMission from "./components/Mission";
 import SkillsLeadership from "./components/Skills";
 import ContactCTA from "./components/CTA";
 
@@ -16,7 +15,6 @@ export default function Home() {
       <InnovationShowcase />
       <BounceTargetGame />
       <SkillsLeadership />
-      <PersonalMission />
       <ContactCTA />
     </>
   );
